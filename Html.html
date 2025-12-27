@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            text-align: center;
+            padding-top: 50px;
+        }
+        textarea {
+            width: 300px;
+            height: 80px;
+        }
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Sentiment Analyzer</h2>
+
+    <p>Enter your opinion</p>
+    <textarea id="opinion"></textarea><br>
+    <button onclick="analyze()">Analyze</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="footer">
+        Developed by: Rohit Nepali, B.E. Computer, PU
+    </div>
+
+    <script>
+        function analyze() {
+            let text = document.getElementById("opinion").value.toLowerCase();
+
+            let positiveWords = ["good", "happy", "great", "excellent", "nice", "love"];
+            let negativeWords = ["bad", "sad", "poor", "worst", "hate", "angry"];
+
+            let pos = 0, neg = 0;
+
+            for (let word of positiveWords) {
+                if (text.includes(word)) pos++;
+            }
+
+            for (let word of negativeWords) {
+                if (text.includes(word)) neg++;
+            }
+
+            let resultText = "Neutral";
+
+            if (pos > neg) resultText = "Positive";
+            else if (neg > pos) resultText = "Negative";
+
+            document.getElementById("result").innerText = "Result: " + resultText;
+        }
+    </script>
+
+</body>
+</html>
