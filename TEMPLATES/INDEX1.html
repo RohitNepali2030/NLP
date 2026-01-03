@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analyzer</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 360px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        p {
+            margin-top: 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 90px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-size: 14px;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 10px;
+            width: 100%;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            min-height: 24px; /* prevents layout shifting */
+        }
+
+        .footer {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>SENTIMENT ANALYZER</h2>
+    <strong><p>Enter Your Opinion</p></strong>
+
+    <form method="POST">
+        <textarea name="opinion" placeholder="Type your opinion here...">{{ opinion }}</textarea>
+        <button type="submit">Analyze</button>
+    </form>
+
+    <div class="result">
+        {% if result %}
+            <strong>Result:</strong> {{ result }}
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <b> Developed By Rohit Nepali<br>
+            BE Computer, PU </b>
+    </div>
+</div>
+
+</body>
+</html>
